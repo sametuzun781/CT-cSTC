@@ -1,0 +1,3 @@
+-r requirements.txt
+cvxpy==1.9.3
+qoco==0.3.2

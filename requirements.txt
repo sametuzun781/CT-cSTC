@@ -1,0 +1,10 @@
+numpy>=2.0,<3
+scipy>=1.13,<2
+jax[cpu]==0.8.1
+jaxlib==0.8.1
+matplotlib>=3.8,<4
+Pillow>=10
+cycler>=0.12
+cmake>=3.22
+ipykernel>=6
+tqdm>=4.66

@@ -1,0 +1,370 @@
+--- a/kernel/avx2/kernel_dgelqf_4_lib4.S
++++ b/kernel/avx2/kernel_dgelqf_4_lib4.S
+@@ -217,6 +217,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -468,6 +469,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -709,6 +711,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -934,6 +937,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -1168,6 +1172,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 128, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -1421,6 +1427,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 128, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -1668,6 +1676,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 128, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -1909,6 +1919,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 128, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -2151,6 +2163,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 256, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -2413,6 +2427,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 256, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -2673,6 +2689,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 256, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -2931,6 +2949,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 256, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -3177,6 +3197,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -3427,6 +3448,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -3667,6 +3689,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -3890,6 +3913,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -4138,6 +4162,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -4351,6 +4376,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -4558,6 +4584,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -4752,6 +4779,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -4974,6 +5002,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -5142,6 +5171,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -5309,6 +5339,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -5468,6 +5499,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -5866,6 +5898,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -6135,6 +6168,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -6394,6 +6428,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -6637,6 +6672,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -6889,6 +6925,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 128, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -7160,6 +7198,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 128, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -7425,6 +7465,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 128, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -7684,6 +7726,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 128, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -7944,6 +7988,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 256, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -8224,6 +8270,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 256, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -8502,6 +8550,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 256, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -8778,6 +8828,8 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
++	addq	$ 256, %r11
+ 	jmp		102f
+ 
+ 101:
+@@ -9042,6 +9094,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -9273,6 +9326,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -9498,6 +9552,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -9710,6 +9765,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -9950,6 +10006,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -10135,6 +10192,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -10320,6 +10378,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
+@@ -10497,6 +10556,7 @@
+ #else
+ 	vmovapd			LC02(%rip), %ymm15
+ #endif
++	movq	ARG2, %r11 // D
+ 	jmp		102f
+ 
+ 101:
