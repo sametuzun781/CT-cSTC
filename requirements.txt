@@ -8,3 +8,4 @@ cycler>=0.12
 cmake>=3.22
 ipykernel>=6
 tqdm>=4.66
+# Install the pinned solver separately: python tools/install_icore.py

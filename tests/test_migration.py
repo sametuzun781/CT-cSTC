@@ -1,5 +1,6 @@
 """Check all five solvers against the notebook's original CVXPY subproblem."""
 import json
+from importlib.metadata import version
 from pathlib import Path
 import cvxpy as cp
 import jax
@@ -8,6 +9,20 @@ import numpy as np
 from ctcstc.application import ROOT, load_application
 from solvers.ipm_adapter import OptionalConvexProblem
 from tests.audit_chain import audit_chain
+
+
+def test_installed_icore_runtime():
+    import icore
+    from tools.install_icore import VERSION
+    from solvers.qoco_native.build import QOCO_SHA256, _sha
+    package = Path(icore.__file__).resolve().parent
+    assert package != ROOT/'icore'
+    assert version('icore') == VERSION
+    assert not (package/'benchmark.py').exists()
+    assert not (package/'vendor/hpipm').exists()
+    for name in ('LICENSE', 'LICENSE-NOTE.md', 'THIRD_PARTY_NOTICES.md'):
+        assert (package/name).is_file()
+    assert _sha(package/'vendor/qoco/qoco-source.tar.gz') == QOCO_SHA256
 
 
 def test_five_solvers_match_original_problem(monkeypatch):

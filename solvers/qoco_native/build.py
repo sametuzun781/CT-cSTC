@@ -1,7 +1,7 @@
 """Build unmodified, pinned upstream QOCO once, outside benchmark timing.
 
 The pinned dependency retains its upstream licenses in .build/qoco_native/source.
-The source archive is bundled in icore/vendor/qoco for offline native builds.
+The source archive is included in the separately installed ICORE runtime.
 """
 from __future__ import annotations
 
@@ -15,13 +15,26 @@ import subprocess
 import sys
 import tarfile
 from urllib.request import urlopen
-from .._build import build_lock
+from contextlib import contextmanager
+from importlib.resources import files
 
 QOCO_VERSION = "0.3.2"
 QOCO_COMMIT = "598de4e1aeaa9c522b3bc5bb1a56f3d7287dc14f"
 QOCO_URL = f"https://codeload.github.com/qoco-org/qoco/tar.gz/{QOCO_COMMIT}"
 QOCO_SHA256 = "13e6481fc547450bd8872bbc867e977c11c9ac624e2a2703929c0d73daf04fb5"
 ROOT = Path(__file__).resolve().parents[2]
+
+
+@contextmanager
+def build_lock(cache):
+    import fcntl
+    cache.mkdir(parents=True, exist_ok=True)
+    with (cache / "build.lock").open("a") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(lock, fcntl.LOCK_UN)
 
 
 def _sha(path):
@@ -83,9 +96,9 @@ def _build_qoco(*, root=None, native_arch=True, force=False):
         shutil.rmtree(cache / "build")
     archive = cache / "qoco-598de4e1.tar.gz"
     if not archive.is_file():
-        bundled = root / "icore/vendor/qoco/qoco-598de4e1.tar.gz"
+        bundled = files("icore").joinpath("vendor/qoco/qoco-source.tar.gz")
         if bundled.is_file():
-            shutil.copyfile(bundled, archive)
+            archive.write_bytes(bundled.read_bytes())
     if not archive.is_file():
         try:
             with urlopen(QOCO_URL, timeout=60) as response:

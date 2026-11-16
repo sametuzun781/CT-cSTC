@@ -1,1 +1,0 @@
-AMD and SuiteSparse_config retain their upstream BSD-3-Clause/SPDX copyright notices in every source and header. Source pinned inside QOCO archive 598de4e1aeaa9c522b3bc5bb1a56f3d7287dc14f.

@@ -7,7 +7,7 @@ from time import perf_counter
 import numpy as np
 import jax
 from ctcstc.application import BACKENDS, load_application, prepare_solver, run_scp
-from ctcstc.timing_display import print_run_summary
+from ctcstc.utils import print_run_summary
 
 
 def main():

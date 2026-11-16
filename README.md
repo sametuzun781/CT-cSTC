@@ -9,11 +9,14 @@ Python 3.12 and a C/C++ compiler are required (macOS: `xcode-select --install`).
 
 ```bash
 python -m pip install -r requirements-comparators.txt
+python tools/install_icore.py
 python -m ipykernel install --user --name ct-cstc-icore
 python run_example.py --backend icore_cpp --audit
 ```
 
 Or open `CT-cSTC.ipynb` using that kernel. Native libraries build on first use.
+ICORE is installed separately from commit `a63ebffb0057`; the installer verifies
+the source checksum and omits benchmark-only files. Internet is needed once.
 The original 85 fixed-weight + 15 adaptive iterations are preserved; completion
 of this budget does not imply convergence. Plot saving and animation are optional.
 
@@ -29,9 +32,8 @@ native derivatives are analytic. Recreate prepared functions after parameter edi
 For equation edits, use JAX or regenerate with `python tools/generate_rocket_field.py`
 after installing `requirements-dev.txt`, then run `python -m pytest tests -q`.
 
-Helpers live in `ctcstc/`, adapters in `solvers/`, native integration in
-`native_discretization/`, and plots in `figures/`. Raw timings are seconds;
-notebook timings are milliseconds. Convex time includes solution input/decode.
+Raw timings are seconds; notebook timings are milliseconds.
+Convex time includes solution input/decode.
 
 ![](figures/sim/rocket_landing.gif)
 ![](figures/rl_pos.png)

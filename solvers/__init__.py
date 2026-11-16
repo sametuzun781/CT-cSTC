@@ -7,3 +7,15 @@ def __getattr__(name):
         from .engine import ChainSolver
         return ChainSolver
     raise AttributeError(name)
+
+
+try:
+    import cvxpy as cp
+except ImportError as _import_error:
+    class _MissingCVXPY:
+        def __getattr__(self, name):
+            raise ImportError(
+                "The cvxpy_qoco backend requires CVXPY and QOCO. "
+                "Install requirements-comparators.txt or select icore_cpp/icore_c."
+            )
+    cp = _MissingCVXPY()

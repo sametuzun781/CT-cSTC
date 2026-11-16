@@ -3,8 +3,8 @@ from time import perf_counter
 import numpy as np
 import jax
 import jax.numpy as jnp
-from solvers.chain_model import ChainQP
-from ctcstc.array_io import to_device
+from icore import ChainQP
+from ctcstc.utils import to_device
 
 COST_SCALE = 4096.0
 

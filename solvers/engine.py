@@ -1,7 +1,7 @@
 """Application selector for native QOCO and the public ICORE Solver."""
 from time import perf_counter
 from icore import Solver
-from ctcstc.array_io import to_host
+from ctcstc.utils import to_host
 
 
 class ChainSolver:
